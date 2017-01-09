@@ -39,7 +39,7 @@ public class TestPerson {
     p.setAge(20);
     p.setName("Fird Birfle");
     p.setSalary(195750.22);
-    
+
     assertEquals("[Person name:Fird Birfle age:20 salary:195750.22]", p.toString());
   }
   
@@ -94,12 +94,17 @@ public class TestPerson {
     // ============ YOUR CHANGES BEGIN HERE
     // Call addPropertyChangeListener with a PropertyChangedListener
     // that has the following code in it:
-    /*
-    assertEquals("ssn", pce.getPropertyName());
-    assertEquals("", pce.getOldValue());
-    assertEquals("012-34-5678", pce.getNewValue());
-    */
-
+    
+    ted.addPropertyChangeListener(new PropertyChangeListener(){
+    	@Override
+		public void propertyChange(PropertyChangeEvent pce) {
+			// TODO Auto-generated method stub
+			assertEquals("ssn", pce.getPropertyName());
+    		assertEquals("", pce.getOldValue());
+    		assertEquals("012-34-5678", pce.getNewValue());
+		}
+    });
+ 
     // ============ YOUR CHANGES END HERE
     
     assertEquals(false, ted.getPropertyChangeFired());
